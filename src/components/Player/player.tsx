@@ -79,60 +79,61 @@ export default function Player() {
         style={{ display: "none" }}
         type="audio/mpeg"
       ></audio>
-      <div className="player">
-        <div className="card1" />
-        <div className="card2" />
-        <div
-          className="cover"
-          style={{
-            backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/calm.webp?alt=media&token=e60bd166-0998-46ed-92e0-5f9dc541d8f8')`,
-          }}
-        />
-        <div className="card3">{}</div>
-        <div className="card5">
-          <button
-            onClick={() => {}}
+      <div className={`player flex flex-row`}>
+        <div className="backgroundCard" />
+        <div className="mainCard">
+          <div
+            className="cover"
             style={{
-              backgroundColor: "transparent",
-              border: "none",
-              cursor: "pointer",
+              backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/calm.webp?alt=media&token=e60bd166-0998-46ed-92e0-5f9dc541d8f8')`,
             }}
-          >
-            <Image
-              width={20}
-              height={20}
-              src={playing ? Pause : Play}
-              alt={""}
-            />
-          </button>
-          <input
-            style={{ marginLeft: "20px", accentColor: "white" }}
-            onChange={(e) => {
-              setVolume(e.target.value);
-            }}
-            value={volume}
-            type="range"
-            id="volume"
-            name="volume"
-            min="0"
-            max="1"
-            step="0.1"
           />
-        </div>
-        <div className="card4">
-          <div className="time">
-            <h1 id="hours">00</h1>
-            <h2>Hours</h2>
+          <div className="titleCard">{}</div>
+          <div className="volumeCard">
+            <button
+              onClick={() => {}}
+              style={{
+                backgroundColor: "transparent",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              <Image
+                width={20}
+                height={20}
+                src={playing ? Pause : Play}
+                alt={""}
+              />
+            </button>
+            <input
+              style={{ marginLeft: "20px", accentColor: "white" }}
+              onChange={(e) => {
+                setVolume(e.target.value);
+              }}
+              value={volume}
+              type="range"
+              id="volume"
+              name="volume"
+              min="0"
+              max="1"
+              step="0.1"
+            />
           </div>
-          :
-          <div className="time">
-            <h1 id="minutes">00</h1>
-            <h2>Minutes</h2>
-          </div>
-          :
-          <div className="time">
-            <h1 id="seconds">00</h1>
-            <h2>Seconds</h2>
+          <div className="timerCard">
+            <div className="time">
+              <h1 id="hours">00</h1>
+              <h2>Hours</h2>
+            </div>
+            :
+            <div className="time">
+              <h1 id="minutes">00</h1>
+              <h2>Minutes</h2>
+            </div>
+            :
+            <div className="time">
+              <h1 id="seconds">00</h1>
+              <h2>Seconds</h2>
+            </div>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@
   }
   .gradient-codetune-center {
     background: rgb(106,106,106);
-    background: linear-gradient(90deg, rgba(106,106,106,1) 0%, #b4fe09 90%);
+    background: linear-gradient(90deg, rgba(106,106,106,1) 35%, #b4fe09 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

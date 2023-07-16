@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Player from '@/components/Player/player'
 import localFont from 'next/font/local'
+import Stations from '@/components/Stations/stations'
 
 const ClashDisplay = localFont({ src: [
   {
@@ -34,7 +35,7 @@ export default function Main() {
   return (
     <div>
       <div className='w-screen mt-[10vh] lg:mt-0 lg:h-screen flex justify-center'>
-        <div className='flex text-center lg:text-left flex-col lg:flex-row justify-center items-center gap-40 xl:gap-52 '>
+        <div className='flex text-center lg:text-left flex-col lg:flex-row justify-center items-center gap-40'>
           <div className='flex flex-col gap-y-10 sm:gap-y-5 w-4/5 lg:w-[40%] items-center lg:items-start md:items-right'>
             <div className={`${ClashDisplay.className} text-4xl sm:text-6xl font-semibold`}>
               <h1>Code &</h1>
@@ -57,13 +58,16 @@ export default function Main() {
               </div>
             </div>
           </div>
-          <div className={`${ClashDisplay.className} font-semibold -mt-36`}>
+          <div className={`${ClashDisplay.className} font-semibold xl:ml-28`}>
             <Player />
           </div>
         </div>
       </div>
-      <div>
-        <h1 className={`${ClashDisplay.className} font-semibold text-center gradient-codetune-center`}>Change Stations</h1>
+      <div className=''>
+        <h1 className={`${ClashDisplay.className} text-3xl font-semibold text-center gradient-codetune-center mt-[200px]`}>Change Stations</h1>
+        <div className={`${ClashDisplay.className} text-xl font-normal flex justify-center items-center`}>
+          <Stations />
+        </div>
       </div>
     </div>
   )

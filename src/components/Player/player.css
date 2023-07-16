@@ -1,224 +1,211 @@
-.card1 {
-    position: absolute;
-    margin-left: 30px;
-    margin-top: 30px;
-    width: 300px;
-    height: 500px;
-    background: rgba( 255, 255, 255, 0 );
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    transform: matrix(1, 0, -0.18, 0.98, 0, 0);
-  }
-  
-  .card2 {
-    position: absolute;
-    width: 280px;
-    height: 172px;
-    margin-top: -30px;
-    margin-left: -10px;
-    background: rgba( 255, 255, 255, 0 );
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    transform: matrix(1, 0, -0.18, 0.98, 0, 0);
-  }
-  
+.mainCard {
+  z-index: 1;
+  width: 300px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform: matrix(1, 0, -0.18, 0.98, 0, 0);
+}
+
+.backgroundCard {
+  margin-top: -50px;
+  margin-left: -20px;
+  position: absolute;
+  width: 280px;
+  height: 172px;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform: matrix(1, 0, -0.18, 0.98, 0, 0);
+}
+
+.cover {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 260px;
+  height: 260px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.titleCard {
+  margin-top: -50px;
+  margin-left: -100px;
+  width: 240px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 1.4rem;
+}
+
+.timerCard {
+  margin-top: 15px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  justify-content: space-around;
+}
+
+.volumeCard {
+  margin-top: 0px;
+  margin-left: 160px;
+  width: 220px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 2rem;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time h1 {
+  font-size: 1.8rem;
+}
+
+.time h2 {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1280px) {
   .cover {
-    width: 300px;
-    height: 300px;
-    background-position: center;
-    background-size: cover;
-    transform: matrix(1, 0, -0.18, 0.98, 0, 0);
-    border-radius: 10px;
+    scale: 0.7;
   }
-  
-  .card3{
-    margin-top: -55px;
+  .mainCard {
+    scale: 0.7;
+  }
+
+  .backgroundCard {
+    scale: 0.7;
+  }
+  .titleCard {
+    margin-top: -100px;
     margin-left: -90px;
-    position: absolute;
-    width: 240px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    background: rgba( 255, 255, 255, 0 );
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    transform: matrix(1, 0, -0.18, 0.98, 0, 0);
-    font-size: 1.4rem;
+    scale: 0.7;
   }
-  
-  .card4{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 110px;
+
+  .timerCard {
+    margin-top: 50px;
     margin-left: 50px;
-    position: absolute;
-    width: 300px;
-    height: 80px;
-    background: rgba( 255, 255, 255, 0 );
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    justify-content: space-around;
-    transform: matrix(1, 0, -0.18, 0.98, 0, 0);
+    scale: 0.7;
   }
-  
-  .card5{
-    margin-top: 15px;
+  .volumeCard {
+    margin-top: -30px;
+    margin-left: 100px;
+    scale: 0.7;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .mainCard {
+    transform: none;
+    scale: 0.8;
+  }
+  .player {
+    margin: 0;
+  }
+  .backgroundCard {
+    display: none;
+  }
+
+  .cover {
+    margin-left: 30px;
+    transform: none;
+    scale: 0.7;
+  }
+
+  .titleCard {
+    transform: none;
+    margin-top: -90px;
+    margin-left: -20px;
+    scale: 0.8;
+  }
+
+  .timerCard {
+    transform: none;
+    margin-top: 70px;
+    margin-left: -40px;
+    scale: 0.8;
+  }
+
+  .volumeCard {
+    margin-top: -10px;
+    transform: none;
     margin-left: 150px;
-    position: absolute;
-    width: 250px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    background: rgba( 255, 255, 255, 0 );
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    transform: matrix(1, 0, -0.18, 0.98, 0, 0);
-    font-size: 2rem;
+    scale: 0.8;
   }
-  
-  .time {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+@media only screen and (max-width: 640px) {
+  .mainCard {
+    transform: none;
+    scale: 0.6;
+  }
+  .player {
+    margin: 0;
+  }
+  .backgroundCard {
+    transform: none;
+    display: none;
+    scale: 0.6;
   }
 
-  .time h1 {
-    font-size: 1.5rem;
+  .cover {
+    margin-left: 30px;
+    transform: none;
+    scale: 0.5;
   }
 
-  .time h2 {
-    font-size: 1rem;
+  .titleCard {
+    transform: none;
+    margin-top: -110px;
+    margin-left: 0px;
+    scale: 0.6;
   }
 
-  @media only screen and (max-width: 1280px) {
-    
-    .cover {
-      scale: 0.7;
-    }
-    .card1 {
-      scale: 0.7;
-    }
-    
-    .card2 {
-      scale: 0.7;
-    }
-    .card3{
-      margin-top: -100px;
-      margin-left: -90px;
-      scale: 0.7;
-    }
-    
-    .card4{
-      margin-top: 50px;
-      margin-left: 50px;
-      scale: 0.7;
-    }
-    .card5{
-      margin-top: -30px;
-      margin-left: 100px;
-      scale: 0.7;
-    }
-  }
-  
-  @media only screen and (max-width: 1024px) {
-    .card1 {
-      transform: none;
-      scale: 0.8;
-    }
-    .player{
-      margin: 0;
-    }
-    .card2 {
-      transform: none;
-      display: none;
-      scale: 0.8;
-    }
-    
-    .cover {
-      margin-left: 30px;
-      transform: none;
-      scale: 0.7;
-    }
-    
-    .card3{
-      transform: none;
-      margin-top: -90px;
-      margin-left: -20px;
-      scale: 0.8;
-    }
-    
-    .card4{
-      transform: none;
-      margin-top: 70px;
-      margin-left: -40px;
-      scale: 0.8;
-    }
-  
-    .card5{
-      margin-top: -10px;
-      transform: none;
-      margin-left: 150px;
-      scale: 0.8;
-    }
-    
+  .timerCard {
+    transform: none;
+    margin-top: 20px;
+    margin-left: 0px;
+    scale: 0.6;
   }
 
-  @media only screen and (max-width: 640px) {
-    .card1 {
-      transform: none;
-      scale: 0.6;
-    }
-    .player{
-      margin: 0;
-    }
-    .card2 {
-      transform: none;
-      display: none;
-      scale: 0.6;
-    }
-    
-    .cover {
-      margin-left: 30px;
-      transform: none;
-      scale: 0.5;
-    }
-    
-    .card3{
-      transform: none;
-      margin-top: -110px;
-      margin-left: 0px;
-      scale: 0.6;
-    }
-    
-    .card4{
-      transform: none;
-      margin-top: 20px;
-      margin-left: 0px;
-      scale: 0.6;
-    }
-  
-    .card5{
-      margin-top: -45px;
-      transform: none;
-      margin-left: 100px;
-      scale: 0.6;
-    }
-    
+  .volumeCard {
+    margin-top: -45px;
+    transform: none;
+    margin-left: 100px;
+    scale: 0.6;
   }
-
+}
