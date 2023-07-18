@@ -10,9 +10,9 @@ export default function Player() {
   const [playing, setPlaying] = useState();
   const [station, setStation] = useState();
 
-  const [hours, setHours] = useState(0)
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState(0)
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
   //To manager the audio player (play, pause, volume...)
   const track = useRef(null);
@@ -40,14 +40,14 @@ export default function Player() {
   useEffect(() => {
     setInterval(() => {
       if (seconds < 59) {
-        setSeconds((prev)=>prev+1)
-      }else{
-        setSeconds(0)
-        if(minutes < 59){
-          setMinutes((prev)=>prev+1)
-        }else{
-          setMinutes(0)
-          setHours((prev)=>prev+1)
+        setSeconds((prev) => prev + 1);
+      } else {
+        setSeconds(0);
+        if (minutes < 59) {
+          setMinutes((prev) => prev + 1);
+        } else {
+          setMinutes(0);
+          setHours((prev) => prev + 1);
         }
       }
     }, 1000);
@@ -120,17 +120,17 @@ export default function Player() {
           </div>
           <div className="timerCard">
             <div className="time">
-              <h1>{hours < 10 ? "0"+hours : hours}</h1>
+              <h1>{hours < 10 ? "0" + hours : hours}</h1>
               <h2>Hours</h2>
             </div>
             :
             <div className="time">
-              <h1>{minutes < 10 ? "0"+minutes : minutes}</h1>
+              <h1>{minutes < 10 ? "0" + minutes : minutes}</h1>
               <h2>Minutes</h2>
             </div>
             :
             <div className="time">
-              <h1>{seconds < 10 ? "0"+seconds : seconds}</h1>
+              <h1>{seconds < 10 ? "0" + seconds : seconds}</h1>
               <h2>Seconds</h2>
             </div>
           </div>
