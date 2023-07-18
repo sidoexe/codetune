@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-
 import Pause from "../../assets/pause.png";
 import Play from "../../assets/play.png";
 import Image from "next/image";
