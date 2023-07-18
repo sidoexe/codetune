@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState, useRef } from "react";
 
 import Pause from "../../assets/pause.png";
@@ -11,11 +10,15 @@ export default function Player() {
   const [playing, setPlaying] = useState();
   const [station, setStation] = useState();
 
+  const [hours, setHours] = useState(0)
+  const [minutes, setMinutes] = useState(0)
+  const [seconds, setSeconds] = useState(0)
+
   //To manager the audio player (play, pause, volume...)
-  const track = useRef();
+  const track = useRef(null);
 
   //So i can play and pause the animation of the background gradient
-  const gradient = useRef();
+  const gradient = useRef(null);
 
   //State setting the default volume to 0.5/1
   const [volume, setVolume] = useState(0.5);
@@ -36,18 +39,15 @@ export default function Player() {
   //Timer
   useEffect(() => {
     setInterval(() => {
-      var sec = document.getElementById("seconds");
-      var min = document.getElementById("minutes");
-      var hou = document.getElementById("hours");
-      if (sec.textContent < 59) {
-        sec.textContent++;
-      } else {
-        sec.textContent = 0;
-        if (min.textContent < 59) {
-          min.textContent++;
-        } else {
-          min.textContent = 0;
-          hou.textContent++;
+      if (seconds < 59) {
+        setSeconds((prev)=>prev+1)
+      }else{
+        setSeconds(0)
+        if(minutes < 59){
+          setMinutes((prev)=>prev+1)
+        }else{
+          setMinutes(0)
+          setHours((prev)=>prev+1)
         }
       }
     }, 1000);
@@ -77,8 +77,7 @@ export default function Player() {
         src={playingLink}
         controls
         style={{ display: "none" }}
-        type="audio/mpeg"
-      ></audio>
+      />
       <div className={`player flex flex-row`}>
         <div className="backgroundCard" />
         <div className="mainCard">
@@ -108,7 +107,7 @@ export default function Player() {
             <input
               style={{ marginLeft: "20px", accentColor: "white" }}
               onChange={(e) => {
-                setVolume(e.target.value);
+                setVolume(parseFloat(e.target.value));
               }}
               value={volume}
               type="range"
@@ -121,17 +120,17 @@ export default function Player() {
           </div>
           <div className="timerCard">
             <div className="time">
-              <h1 id="hours">00</h1>
+              <h1>{hours < 10 ? "0"+hours : hours}</h1>
               <h2>Hours</h2>
             </div>
             :
             <div className="time">
-              <h1 id="minutes">00</h1>
+              <h1>{minutes < 10 ? "0"+minutes : minutes}</h1>
               <h2>Minutes</h2>
             </div>
             :
             <div className="time">
-              <h1 id="seconds">00</h1>
+              <h1>{seconds < 10 ? "0"+seconds : seconds}</h1>
               <h2>Seconds</h2>
             </div>
           </div>

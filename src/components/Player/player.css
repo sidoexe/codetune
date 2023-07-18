@@ -11,7 +11,7 @@
 }
 
 .backgroundCard {
-  margin-top: -50px;
+  margin-top: -30px;
   margin-left: -20px;
   position: absolute;
   width: 280px;
@@ -68,7 +68,7 @@
 }
 
 .volumeCard {
-  margin-top: 0px;
+  margin-top: -10px;
   margin-left: 160px;
   width: 220px;
   height: 70px;
@@ -99,34 +99,6 @@
   font-size: 1rem;
 }
 
-@media only screen and (max-width: 1280px) {
-  .cover {
-    scale: 0.7;
-  }
-  .mainCard {
-    scale: 0.7;
-  }
-
-  .backgroundCard {
-    scale: 0.7;
-  }
-  .titleCard {
-    margin-top: -100px;
-    margin-left: -90px;
-    scale: 0.7;
-  }
-
-  .timerCard {
-    margin-top: 50px;
-    margin-left: 50px;
-    scale: 0.7;
-  }
-  .volumeCard {
-    margin-top: -30px;
-    margin-left: 100px;
-    scale: 0.7;
-  }
-}
 
 @media only screen and (max-width: 1024px) {
   .mainCard {
@@ -141,71 +113,56 @@
   }
 
   .cover {
-    margin-left: 30px;
     transform: none;
-    scale: 0.7;
+    scale: 1;
   }
 
   .titleCard {
     transform: none;
-    margin-top: -90px;
-    margin-left: -20px;
-    scale: 0.8;
+    margin-top: -60px;
+    margin-left: -50px;
+    scale: 1;
   }
 
   .timerCard {
     transform: none;
-    margin-top: 70px;
+    margin-top: 10px;
     margin-left: -40px;
-    scale: 0.8;
+    scale: 1;
   }
 
   .volumeCard {
-    margin-top: -10px;
+    margin-top: 10px;
     transform: none;
     margin-left: 150px;
-    scale: 0.8;
+    scale: 1;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .mainCard {
-    transform: none;
-    scale: 0.6;
-  }
-  .player {
-    margin: 0;
-  }
-  .backgroundCard {
-    transform: none;
-    display: none;
-    scale: 0.6;
+ .mainCard {
+    scale: 0.7;
   }
 
   .cover {
-    margin-left: 30px;
-    transform: none;
-    scale: 0.5;
+    scale: 0.9;
   }
 
   .titleCard {
-    transform: none;
-    margin-top: -110px;
-    margin-left: 0px;
-    scale: 0.6;
+    margin-top: -60px;
+    margin-left: -50px;
+    scale: 0.9;
   }
 
   .timerCard {
-    transform: none;
-    margin-top: 20px;
-    margin-left: 0px;
-    scale: 0.6;
+    margin-top: 10px;
+    margin-left: -40px;
+    scale: 0.9;
   }
 
   .volumeCard {
-    margin-top: -45px;
-    transform: none;
-    margin-left: 100px;
-    scale: 0.6;
+    margin-top: 10px;
+    margin-left: 150px;
+    scale: 0.9;
   }
 }
