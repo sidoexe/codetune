@@ -1,11 +1,18 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import { stationsList } from "./stationsData";
+import { useStationContext } from "@/app/stationContext";
+import type { station } from "@/app/types";
 
 type Props = {};
 
 export default function Stations({}: Props) {
   const [playingCardName, setPlayingCardName] = useState("");
+  const [station, setStation] = useStationContext();
+
+  const selectStation = (data: station) => {
+    setStation(data);
+  };
 
   return (
     <>
@@ -19,10 +26,13 @@ export default function Stations({}: Props) {
                 : "border-[#ffffff2e]"
             }`}
             onClick={() => {
-              setPlayingCardName(data.name);
+              selectStation(data);
             }}
           >
-            <h1>{data.name}</h1>
+            <div className="flex gap-5">
+              <h1>{data.emoji}</h1>
+              <h1>{data.name}</h1>
+            </div>
           </button>
         ))}
       </div>

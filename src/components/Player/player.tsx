@@ -2,19 +2,21 @@
 import { useEffect, useState, useRef } from "react";
 import Pause from "../../assets/pause.png";
 import Play from "../../assets/play.png";
+import { useStationContext } from "@/app/stationContext";
 import Image from "next/image";
 import "./player.css";
+import type { station } from "@/app/types";
 
 export default function Player() {
   const [playing, setPlaying] = useState();
-  const [station, setStation] = useState();
+  const [station, setStation] = useStationContext();
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
   //To manager the audio player (play, pause, volume...)
-  const track = useRef(null);
+  const track = useRef<HTMLAudioElement>(null);
 
   //So i can play and pause the animation of the background gradient
   const gradient = useRef(null);
@@ -36,25 +38,32 @@ export default function Player() {
   const [playingIndex, setPlayingIndex] = useState(0);
 
   //Timer
+
   useEffect(() => {
-    setInterval(() => {
-      if (seconds < 59) {
-        setSeconds((prev) => prev + 1);
-      } else {
-        setSeconds(0);
-        if (minutes < 59) {
-          setMinutes((prev) => prev + 1);
-        } else {
-          setMinutes(0);
-          setHours((prev) => prev + 1);
-        }
-      }
+    const interval = setInterval(() => {
+      setSeconds((prevSeconds) => prevSeconds + 1);
     }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (seconds === 60) {
+      setSeconds(0);
+      setMinutes((prevMinutes) => prevMinutes + 1);
+    }
+  }, [seconds]);
+
+  useEffect(() => {
+    if (minutes === 60) {
+      setMinutes(0);
+      setHours((prevHours) => prevHours + 1);
+    }
+  }, [minutes]);
 
   //Change volume
   useEffect(() => {
-    track.current.volume = volume;
+    track.current!.volume = volume;
   }, [volume]);
 
   //Play/pause + controlling the gradient + autoplay activating only after first time
@@ -86,7 +95,10 @@ export default function Player() {
               backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/calm.webp?alt=media&token=e60bd166-0998-46ed-92e0-5f9dc541d8f8')`,
             }}
           />
-          <div className="titleCard">{}</div>
+          <div className="titleCard flex gap-5">
+            <h1>{station.emoji}</h1>
+            <h1>{station.name}</h1>
+          </div>
           <div className="volumeCard">
             <button
               onClick={() => {}}

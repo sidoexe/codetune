@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "./theme";
+import { StationProvider } from "./stationContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeProvider>
+      <StationProvider>
         <body className={inter.className}>{children}</body>
-      </ThemeProvider>
+      </StationProvider>
     </html>
   );
 }
