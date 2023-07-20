@@ -7,8 +7,7 @@ export function StationProvider({ children }) {
   const [station, setStation] = useState({});
   return (
     <Context.Provider value={[station, setStation]}>
-      {" "}
-      {children}{" "}
+      {children}
     </Context.Provider>
   );
 }

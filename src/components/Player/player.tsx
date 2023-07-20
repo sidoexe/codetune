@@ -30,10 +30,10 @@ export default function Player() {
   const [autoPlay, setAutoPlay] = useState(false);
 
   //For the playing track
-  const [playingLink, setPlayingLink] = useState();
+  const [playingLink, setPlayingLink] = useState("");
 
   //The array containing the links that will be played
-  const [trackList, setTrackList] = useState([]);
+  const [trackList, setTrackList] = useState([""]);
 
   //The index of the current playing sound in the previous array : trackList
   const [playingIndex, setPlayingIndex] = useState(0);
@@ -82,16 +82,20 @@ export default function Player() {
 
   //Shuffle the links of the tracks received from the object of the station
   useEffect(() => {
-    setPlayingIndex(0);
-    trackList.splice(0, trackList.length);
-    var tempTab = [...station?.links];
-    for (var i = 0; i < station?.links.length; i++) {
-      var randomNumber = Math.floor(Math.random() * tempTab.length);
-      trackList.push(tempTab[randomNumber]);
-      tempTab.splice(randomNumber, 1);
+    if (station.links && station.links.length !== 0) {
+      setPlayingIndex(0);
+      const tempTab = [...station.links]; // Use spread operator to create a copy of station.links
+      const shuffledLinks = [];
+
+      for (var i = 0; i < station.links.length; i++) {
+        var randomNumber = Math.floor(Math.random() * tempTab.length);
+        shuffledLinks.push(tempTab[randomNumber]);
+        tempTab.splice(randomNumber, 1);
+      }
+
+      setPlayingLink(shuffledLinks[0]);
+      setPlayingIndex(playingIndex + 1);
     }
-    setPlayingLink(trackList[0]);
-    setPlayingIndex(playingIndex + 1);
   }, [station]);
 
   //Autoplay next song in the array if finished, then replay the tracklist
