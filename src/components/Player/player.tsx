@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect, useState, useRef } from "react";
 import Pause from "../../assets/pause.png";
@@ -19,7 +20,7 @@ export default function Player() {
   const track = useRef<HTMLAudioElement>(null);
 
   //So i can play and pause the animation of the background gradient
-  const gradient = useRef(null);
+  const gradient = useRef<HTMLElement>(null);
 
   //State setting the default volume to 0.5/1
   const [volume, setVolume] = useState(0.5);
@@ -66,12 +67,44 @@ export default function Player() {
     track.current!.volume = volume;
   }, [volume]);
 
-  //Play/pause + controlling the gradient + autoplay activating only after first time
+  useEffect(() => {
+    if (playing == true) {
+      setAutoPlay(true);
+    }
+    if (playing === false) {
+      track.current!.pause();
+      gradient.current!.style.animationPlayState = "paused";
+    } else {
+      track.current!.play();
+      gradient.current!.style.animationPlayState = "running";
+    }
+  }, [playing]);
 
   //Shuffle the links of the tracks received from the object of the station
+  useEffect(() => {
+    setPlayingIndex(0);
+    trackList.splice(0, trackList.length);
+    var tempTab = [...station?.links];
+    for (var i = 0; i < station?.links.length; i++) {
+      var randomNumber = Math.floor(Math.random() * tempTab.length);
+      trackList.push(tempTab[randomNumber]);
+      tempTab.splice(randomNumber, 1);
+    }
+    setPlayingLink(trackList[0]);
+    setPlayingIndex(playingIndex + 1);
+  }, [station]);
 
   //Autoplay next song in the array if finished, then replay the tracklist
-  const endedPlaying = () => {};
+  const endedPlaying = () => {
+    if (playingIndex + 1 === station.links.length) {
+      setPlayingIndex(0);
+    } else {
+      setPlayingIndex(playingIndex + 1);
+    }
+    setPlayingLink(trackList[playingIndex]);
+    track.current!.play();
+  };
+
   return (
     <div className="flex justify-center items-center">
       <div ref={gradient} className="backgroundGradient" />

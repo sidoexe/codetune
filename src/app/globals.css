@@ -75,7 +75,14 @@ a {
   height: 50vh;
   top: 30%;
   left: 20%;
-  animation: respiration infinite 4s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
