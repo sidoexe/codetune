@@ -7,38 +7,23 @@ import { useStationContext } from "@/app/stationContext";
 import Image from "next/image";
 import "./player.css";
 import type { station } from "@/app/types";
+import { motion } from "framer-motion";
 
 export default function Player() {
-  const [playing, setPlaying] = useState();
+  const [playing, setPlaying] = useState(false);
   const [station, setStation] = useStationContext();
+  const [volume, setVolume] = useState(0.5);
+  const [autoPlay, setAutoPlay] = useState(false);
+  const [playingLink, setPlayingLink] = useState("");
+  const [playingIndex, setPlayingIndex] = useState(0);
+  const shuffledLinks: string[] = [];
+
+  const track = useRef<HTMLAudioElement>(null);
+  const gradient = useRef<HTMLDivElement>(null);
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-
-  //To manager the audio player (play, pause, volume...)
-  const track = useRef<HTMLAudioElement>(null);
-
-  //So i can play and pause the animation of the background gradient
-  const gradient = useRef<HTMLElement>(null);
-
-  //State setting the default volume to 0.5/1
-  const [volume, setVolume] = useState(0.5);
-
-  /*Disabling autoplay initially due to potential issues with Firefox, 
-    but reactivating it after the first play so that the second track plays automatically when the first one ends*/
-  const [autoPlay, setAutoPlay] = useState(false);
-
-  //For the playing track
-  const [playingLink, setPlayingLink] = useState("");
-
-  //The array containing the links that will be played
-  const [trackList, setTrackList] = useState([""]);
-
-  //The index of the current playing sound in the previous array : trackList
-  const [playingIndex, setPlayingIndex] = useState(0);
-
-  //Timer
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,12 +65,10 @@ export default function Player() {
     }
   }, [playing]);
 
-  //Shuffle the links of the tracks received from the object of the station
   useEffect(() => {
     if (station.links && station.links.length !== 0) {
       setPlayingIndex(0);
-      const tempTab = [...station.links]; // Use spread operator to create a copy of station.links
-      const shuffledLinks = [];
+      const tempTab = [...station.links];
 
       for (var i = 0; i < station.links.length; i++) {
         var randomNumber = Math.floor(Math.random() * tempTab.length);
@@ -105,7 +88,7 @@ export default function Player() {
     } else {
       setPlayingIndex(playingIndex + 1);
     }
-    setPlayingLink(trackList[playingIndex]);
+    setPlayingLink(shuffledLinks[playingIndex]);
     track.current!.play();
   };
 
@@ -123,13 +106,19 @@ export default function Player() {
         controls
         style={{ display: "none" }}
       />
-      <div className={`player flex flex-row`}>
+      <motion.div
+        initial={{ x: 20, y: 20, opacity: 0 }}
+        whileInView={{ x: 0, y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className={`player flex flex-row`}
+      >
         <div className="backgroundCard" />
         <div className="mainCard">
           <div
             className="cover"
             style={{
-              backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/calm.webp?alt=media&token=e60bd166-0998-46ed-92e0-5f9dc541d8f8')`,
+              backgroundImage: `url(${station.cover})`,
             }}
           />
           <div className="titleCard flex gap-5">
@@ -138,7 +127,9 @@ export default function Player() {
           </div>
           <div className="volumeCard">
             <button
-              onClick={() => {}}
+              onClick={() => {
+                setPlaying(!playing);
+              }}
               style={{
                 backgroundColor: "transparent",
                 border: "none",
@@ -183,7 +174,7 @@ export default function Player() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

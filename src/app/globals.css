@@ -83,6 +83,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: respiration infinite 4s linear;
 }
 
 

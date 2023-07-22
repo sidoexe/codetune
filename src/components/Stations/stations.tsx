@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { stationsList } from "./stationsData";
 import { useStationContext } from "@/app/stationContext";
 import type { station } from "@/app/types";
@@ -9,6 +9,11 @@ type Props = {};
 export default function Stations({}: Props) {
   const [playingCardName, setPlayingCardName] = useState("");
   const [station, setStation] = useStationContext();
+
+  useEffect(() => {
+    var randomNumber = Math.floor(Math.random() * 9);
+    setStation(stationsList[randomNumber]);
+  }, []);
 
   const selectStation = (data: station) => {
     setStation(data);

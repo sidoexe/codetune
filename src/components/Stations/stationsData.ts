@@ -15,8 +15,8 @@ export const stationsList: station[] = [
         emoji: "🙇‍♀️",
         cover:
             "https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/lofi.webp?alt=media&token=30d45578-b486-406f-97bc-f522acf259b6",
-        links: ["https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/lofi1.mp3?alt=media&token=1e57dd94-d98d-4060-8929-d857babf057a",
-            "https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/lofi2.mp3?alt=media&token=2dc4bb1f-1997-462b-88d3-3d8c7cb35b42",
+        links: ["https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/lofi1.mp3?alt=media&token=aee31399-abc2-4c8f-acb0-dc2f3a6b653c",
+            "https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/lofi2.mp3?alt=media&token=9a77a798-cf73-4d3d-b1e8-649f1422b165",
             "https://firebasestorage.googleapis.com/v0/b/codetune.appspot.com/o/lofi3.mp3?alt=media&token=f1e44774-fd04-4d42-9518-e3a0740eba90",],
     },
     {
