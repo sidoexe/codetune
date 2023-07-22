@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const ClashDisplay = localFont({
   src: [
     {
-      path: "../assets/fonts/ClashDisplay-ExtraLight.ttf",
+      path: "../assets/fonts/ClashDisplay-Extralight.ttf",
       weight: "200",
     },
     {
