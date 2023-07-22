@@ -5,6 +5,9 @@ import Player from "@/components/Player/player";
 import localFont from "next/font/local";
 import Stations from "@/components/Stations/stations";
 import { motion } from "framer-motion";
+import { inject } from "@vercel/analytics";
+
+inject();
 
 const ClashDisplay = localFont({
   src: [
