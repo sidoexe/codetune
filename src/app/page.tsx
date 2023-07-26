@@ -58,7 +58,7 @@ export default function Main() {
       </div>
       {loaded ? (
         <div>
-          <div className="w-screen mt-[10vh] lg:mt-0 lg:h-screen flex justify-center">
+          <div className="mt-[10vh] lg:mt-0 lg:h-screen flex justify-center">
             <div className="flex text-center lg:text-left flex-col lg:flex-row justify-center items-center gap-10 lg:gap-40">
               <div className="flex flex-col gap-y-10 sm:gap-y-5 w-4/5 lg:w-[40%] items-center lg:items-start md:items-right">
                 <div
