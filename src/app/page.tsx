@@ -50,6 +50,14 @@ export default function Main() {
         preloader.current!.style.display = "none";
       }, 50);
     });
+    setTimeout(() => {
+      setLoaded(true);
+      preloader.current!.style.opacity = "0";
+      preloader.current!.style.position = "absolute";
+      setTimeout(() => {
+        preloader.current!.style.display = "none";
+      }, 50);
+    }, 3000);
   }, []);
   return (
     <>
